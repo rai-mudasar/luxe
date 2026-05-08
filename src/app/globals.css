@@ -5,9 +5,46 @@
   --foreground: #171717;
 }
 
+@layer base {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 2px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C45A3C;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: 
+    #8d361e;
+    cursor:wb   grab; 
+  }
+
+  /* For Firefox (Firefox uses different properties) */
+  /* * {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #0469f7;
+  } */
+}
+
+@theme{
+  @keyframes marquee{
+    from {transform: translateX(0);}
+    to {transform: translateX(-50%);}
+  }
+
+  --animate-marquee: marquee 40s linear infinite;
+}
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --font-times: "Times New Roman", Times, serif;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -17,10 +54,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

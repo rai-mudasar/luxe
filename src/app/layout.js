@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,30 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <div className="w-full h-6 md:h-9 bg-[#1A1A1A] flex overflow-x-hidden relative">
+          <div className="flex whitespace-nowrap animate-marquee justify-center items-center">
+            <span className="text-sm font-semibold text-white mx-4 uppercase flex gap-7 md:gap-26">
+              <p>*</p>
+              <p>Free Shipping Over Order $150</p> 
+              <p>*</p>
+              <p>New Arrival Every Week</p>
+              <p>*</p>
+              <p className="mr-7 md:mr-26">Sustainable & Ethically Made</p>
+            </span>
+            <span className="text-sm font-semibold text-white mx-4 uppercase flex gap-7 md:gap-26">
+              <p>*</p>
+              <p>Free Shipping Over Order $150</p> 
+              <p>*</p>
+              <p>New Arrival Every Week</p>
+              <p>*</p>
+              <p className="mr-7 md:mr-26">Sustainable & Ethically Made</p>
+            </span>
+          </div>
+        </div>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
