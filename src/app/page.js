@@ -1,8 +1,8 @@
-import ContactBanner from "@/components/ContactBanner";
-import FeaturedCards from "@/components/FeaturedCards";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
-import Products from "@/components/Products";
+import ContactBanner from "@/components/Landing Page/ContactBanner";
+import FeaturedCards from "@/components/Landing Page/FeaturedCards";
+import Footer from "@/components/Landing Page/Footer";
+import HeroSection from "@/components/Landing Page/HeroSection";
+import Products from "@/components/Landing Page/Products";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <FeaturedCards />
       <Products />
       <ContactBanner />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
