@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { ArrowRight, HeartPlus } from 'lucide-react'
 import { ScrollArea } from '@/components/ui/scroll-area';
 import SafeImage from '@/components/SafeImage';
+import { useCart } from '@/context/CartContext';
 
 export default function page() {
 
     const [activeTimeFilterTab, setActiveTimeFilterTab] = useState('all')
     const [activeTypeFilterTab, setActiveTypeFilterTab] = useState('all')
+    const {dispatch} = useCart()
 
     const timeFilterTabs = [
         { name: 'All' },
@@ -25,15 +27,6 @@ export default function page() {
     ];
 
     const products = [
-        {
-            id: 2,
-            name: "Structured Wool Overcoat",
-            type: "outwear",
-            tag: "new",
-            price: 850,
-            description: "Premium wool tailored winter coat.",
-            imageUrl: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=800&auto=format&fit=crop"
-        },
         {
             id: 3,
             name: "Grained Leather Chelsea Boots",
@@ -253,7 +246,7 @@ export default function page() {
                                         alt="Product Image"
                                         className={"object-contain"}
                                     />
-                                    <button className='w-[80%] text-[11px] md:text-[16px] text-white bg-[#C45C3A] md:bg-[#2C2321] hover:bg-[#C45C3A] absolute bottom-2 md:bottom-2 left-1/2 -translate-x-1/2 rounded-md py-1.5 md:py-2 md:opacity-0 group-hover:opacity-100 md:translate-y-4 group-hover:translate-y-0 ease-out transition-all duration-400 cursor-pointer uppercase flex justify-center items-center gap-3'>
+                                    <button onClick={() => dispatch({type: 'ADD_ITEM', payload: product})} className='w-[80%] text-[11px] md:text-[16px] text-white bg-[#C45C3A] md:bg-[#2C2321] hover:bg-[#C45C3A] absolute bottom-2 md:bottom-2 left-1/2 -translate-x-1/2 rounded-md py-1.5 md:py-2 md:opacity-0 group-hover:opacity-100 md:translate-y-4 group-hover:translate-y-0 ease-out transition-all duration-400 cursor-pointer uppercase flex justify-center items-center gap-3'>
                                         <HeartPlus className='w-4 md:w-5 h-4 md:h-5' />
                                         Add to Cart
                                     </button>
